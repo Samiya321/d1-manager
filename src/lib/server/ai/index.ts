@@ -8,7 +8,7 @@ debug.enable("aid*");
 const log = debug("assistant");
 log.enabled = true;
 
-const OPENAI_MODEL = env.OPENAI_MODEL || "gpt-3.5-turbo-1106";
+const OPENAI_MODEL = env.OPENAI_MODEL || "gpt-4.1-mini";
 const CFAI_MODEL = env.CFAI_MODEL || "@cf/mistral/mistral-7b-instruct-v0.1";
 
 /**
@@ -51,8 +51,8 @@ export async function select_backend(): Promise<AiBackend> {
 	if (env.AI) {
 		log("using Cloudflare backend");
 		return Aid.chat(async (messages) => {
-			const { Ai } = await import("$lib/../../cfai/cfai");
-			const ai = new Ai(env.AI);
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			const ai = env.AI as any;
 			const { response } = await ai.run(CFAI_MODEL, {
 				messages,
 			});

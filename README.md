@@ -6,25 +6,25 @@ D1 Manager is a web UI and API for Cloudflare D1, a serverless SQL database. It 
 
 ## Features
 
--   [x] Multiple D1 Databases
--   [x] List all tables in a database
--   [x] Show table schema
--   [x] Run SQL queries
--   [x] Run Semantic Queries (OpenAI API or Cloudflare AI Worker)
--   [x] Edit table data through UI
--   [x] I18n support (English, Chinese, Spanish, Japanese) [add more](./locales/) ([Online Editor](https://fink.inlang.com/github.com/JacobLinCool/d1-manager))
--   [x] API support (see [routes/api](./src/routes/api/) for details)
+- [x] Multiple D1 Databases
+- [x] List all tables in a database
+- [x] Show table schema
+- [x] Run SQL queries
+- [x] Run Semantic Queries (OpenAI API or Cloudflare AI Worker)
+- [x] Edit table data through UI
+- [x] I18n support (English, Chinese, Spanish, Japanese) [add more](./locales/) ([Online Editor](https://fink.inlang.com/github.com/JacobLinCool/d1-manager))
+- [x] API support (see [routes/api](./src/routes/api/) for details)
 
 ## Setup
 
 1. Fork this repo
 2. Setup a **Cloudflare Pages** with the forked repo
-   - Select the **SveltKit** framework preset.
-   - Build command: `npm run build`
-   - Build output directory: `.svelte-kit/cloudflare`
-4. Use **Cloudflare Access** to protect the your site
-   - The default access rules only restrict access to preview pages, so make sure to add other urls you want protected.
-6. **Bind databases** to `DB_*` environment variables
+    - Select the **SveltKit** framework preset.
+    - Build command: `npm run build`
+    - Build output directory: `.svelte-kit/cloudflare`
+3. Use **Cloudflare Access** to protect the your site
+    - The default access rules only restrict access to preview pages, so make sure to add other urls you want protected.
+4. **Bind databases** to `DB_*` environment variables
 
 ![bind-d1](./images/bind-d1.png)
 
@@ -48,7 +48,7 @@ OpenAI API:
 
 - `OPENAI_API_KEY`: OpenAI API key for Semantic Query.
 - `OPENAI_API_URL`: You may use this with Cloudflare AI Gateway to proxy requests to OpenAI API.
-- `OPENAI_MODEL`: OpenAI API model for Semantic Query. Default to `gpt-3.5-turbo-1106`.
+- `OPENAI_MODEL`: OpenAI API model for Semantic Query. Default to `gpt-4.1-mini`.
 
 Cloudflare AI Worker:
 
@@ -67,4 +67,4 @@ Cloudflare AI Worker:
 
 ![semantic-query](./images/semantic-query.png)
 
-> Semantic Query uses OpenAI GPT-3.5 Turbo to translate natural language queries into SQL.
+> Semantic Query uses OpenAI GPT-4.1 Mini to translate natural language queries into SQL.
